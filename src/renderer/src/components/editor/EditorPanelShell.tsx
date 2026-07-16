@@ -101,7 +101,7 @@ export function EditorPanelShell({
           isSingleDiff={model.isSingleDiff}
           isDiffSurface={model.isDiffSurface}
           isMarkdown={model.isMarkdown}
-          isCsv={model.isCsv}
+          isSpreadsheet={model.isSpreadsheet}
           isNotebook={model.isNotebook}
           hasEditorToggle={model.hasEditorToggle}
           availableEditorToggleModes={model.availableEditorToggleModes}
@@ -142,6 +142,8 @@ export function EditorPanelShell({
           isMarkdown={model.isMarkdown}
           isMermaid={model.isMermaid}
           isCsv={model.isCsv}
+          isSpreadsheet={model.isSpreadsheet}
+          isXlsx={model.isXlsx}
           isNotebook={model.isNotebook}
           mdViewMode={model.mdViewMode}
           isChangesMode={model.isDiffSurface && !model.isSingleDiff}

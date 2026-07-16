@@ -4,8 +4,8 @@ import { useAppStore } from '@/store'
 import type { OpenFile } from '@/store/slices/editor'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import EditorViewToggle, {
-  CSV_VIEW_MODE_METADATA,
-  NOTEBOOK_VIEW_MODE_METADATA
+  NOTEBOOK_VIEW_MODE_METADATA,
+  SPREADSHEET_VIEW_MODE_METADATA
 } from './EditorViewToggle'
 import type { EditorToggleValue } from './EditorViewToggle'
 import type { EditorHeaderOpenFileState } from './editor-header'
@@ -20,7 +20,7 @@ type EditorPanelHeaderProps = {
   isSingleDiff: boolean
   isDiffSurface: boolean
   isMarkdown: boolean
-  isCsv: boolean
+  isSpreadsheet: boolean
   isNotebook: boolean
   hasEditorToggle: boolean
   availableEditorToggleModes: readonly EditorToggleValue[]
@@ -54,7 +54,7 @@ export function EditorPanelHeader({
   isSingleDiff,
   isDiffSurface,
   isMarkdown,
-  isCsv,
+  isSpreadsheet,
   isNotebook,
   hasEditorToggle,
   availableEditorToggleModes,
@@ -206,7 +206,11 @@ export function EditorPanelHeader({
           modes={availableEditorToggleModes}
           onChange={onEditorToggleChange}
           metadataOverride={
-            isCsv ? CSV_VIEW_MODE_METADATA : isNotebook ? NOTEBOOK_VIEW_MODE_METADATA : undefined
+            isSpreadsheet
+              ? SPREADSHEET_VIEW_MODE_METADATA
+              : isNotebook
+                ? NOTEBOOK_VIEW_MODE_METADATA
+                : undefined
           }
         />
       )}

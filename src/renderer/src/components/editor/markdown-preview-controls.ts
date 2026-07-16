@@ -10,6 +10,7 @@ const MARKDOWN_EDIT_VIEW_MODES = ['source', 'rich'] as const satisfies readonly 
 const MARKDOWN_DIFF_VIEW_MODES = ['source', 'rich'] as const satisfies readonly MarkdownViewMode[]
 const MERMAID_VIEW_MODES = ['source', 'rich'] as const satisfies readonly MarkdownViewMode[]
 const CSV_VIEW_MODES = ['source', 'rich'] as const satisfies readonly MarkdownViewMode[]
+const SPREADSHEET_VIEW_MODES = ['source', 'rich'] as const satisfies readonly MarkdownViewMode[]
 const NOTEBOOK_VIEW_MODES = ['source', 'rich'] as const satisfies readonly MarkdownViewMode[]
 const NO_VIEW_MODES = [] as const satisfies readonly MarkdownViewMode[]
 
@@ -59,6 +60,10 @@ export function getMarkdownViewModes(target: MarkdownPreviewTarget): readonly Ma
 
   if ((target.language === 'csv' || target.language === 'tsv') && target.mode === 'edit') {
     return CSV_VIEW_MODES
+  }
+
+  if (target.language === 'xlsx' && target.mode === 'edit') {
+    return SPREADSHEET_VIEW_MODES
   }
 
   if (target.language === 'notebook' && target.mode === 'edit') {

@@ -91,7 +91,9 @@ const EXT_TO_LANGUAGE: Record<string, string> = {
   '.hcl': 'hcl',
   '.prisma': 'graphql',
   '.csv': 'csv',
-  '.tsv': 'tsv'
+  '.tsv': 'tsv',
+  '.xlsx': 'xlsx',
+  '.xls': 'xlsx'
 }
 
 const FILENAME_TO_LANGUAGE: Record<string, string> = {

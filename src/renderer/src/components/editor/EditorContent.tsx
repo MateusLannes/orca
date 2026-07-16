@@ -44,6 +44,7 @@ const ImageViewer = lazy(() => import('./ImageViewer'))
 const ImageDiffViewer = lazy(() => import('./ImageDiffViewer'))
 const MermaidViewer = lazy(() => import('./MermaidViewer'))
 const CsvViewer = lazy(() => import('./CsvViewer'))
+const XlsxViewer = lazy(() => import('./XlsxViewer'))
 const IpynbViewer = lazy(() => import('./IpynbViewer'))
 
 export function getMarkdownSourceLineOffset(frontMatterRaw: string): number {
@@ -126,6 +127,8 @@ export function EditorContent({
   isMarkdown,
   isMermaid,
   isCsv,
+  isSpreadsheet,
+  isXlsx,
   isNotebook,
   mdViewMode,
   isChangesMode,
@@ -153,6 +156,8 @@ export function EditorContent({
   isMarkdown: boolean
   isMermaid: boolean
   isCsv: boolean
+  isSpreadsheet: boolean
+  isXlsx: boolean
   isNotebook: boolean
   mdViewMode: MarkdownViewMode
   isChangesMode: boolean
@@ -830,6 +835,12 @@ export function EditorContent({
             <CsvViewer
               key={activeFile.id}
               content={editBuffers[activeFile.id] ?? fc.content}
+              filePath={activeFile.filePath}
+            />
+          ) : isSpreadsheet && isXlsx && mdViewMode === 'rich' ? (
+            <XlsxViewer
+              key={activeFile.id}
+              content={fc.content}
               filePath={activeFile.filePath}
             />
           ) : isNotebook && mdViewMode === 'rich' ? (

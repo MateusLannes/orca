@@ -149,6 +149,8 @@ export function getEditorPanelRenderModel({
     isMarkdown: resolvedLanguage === 'markdown',
     isMermaid: resolvedLanguage === 'mermaid',
     isCsv: resolvedLanguage === 'csv' || resolvedLanguage === 'tsv',
+    isSpreadsheet: resolvedLanguage === 'csv' || resolvedLanguage === 'tsv' || resolvedLanguage === 'xlsx',
+    isXlsx: resolvedLanguage === 'xlsx',
     isNotebook: resolvedLanguage === 'notebook',
     canOpenPreviewToSide: activeFile.mode === 'edit' && canPreviewLanguage(resolvedLanguage),
     mdViewMode,

@@ -87,6 +87,15 @@ export const NOTEBOOK_VIEW_MODE_METADATA: Partial<Record<MarkdownViewMode, ViewM
   }
 }
 
+export const SPREADSHEET_VIEW_MODE_METADATA: Partial<Record<MarkdownViewMode, ViewModeMetadata>> = {
+  rich: {
+    get label() {
+      return translate('auto.components.editor.EditorViewToggle.e408aa9cd5', 'Table')
+    },
+    icon: TableIcon
+  }
+}
+
 type EditorViewToggleProps = {
   value: EditorToggleValue
   modes: readonly EditorToggleValue[]
