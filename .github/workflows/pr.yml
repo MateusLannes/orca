@@ -1451,6 +1451,15 @@ jobs:
       - name: Smoke packaged CLI
         run: node config/scripts/smoke-packaged-cli.mjs --app-dir=dist/win-unpacked
 
+      - name: Publish Windows preview
+        uses: actions/upload-artifact@v7
+        with:
+          name: orca-windows-preview-${{ github.event.pull_request.head.sha }}
+          path: dist/win-unpacked/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+
   e2e:
     name: e2e
     needs: [code_paths, preflight]
